@@ -21,13 +21,10 @@ const Posts = () => {
       ) : (
         posts.map(post => {
           return (
-            <Link to={`/post/${post.id}`}>
-              <Post
-                key={post.id}
-                title={post.title}
-                id={post.id}
-                userId={post.userId}
-              />
+            <Link to={`/post/${post.id}`} key={post.id}>
+              <div className="post">
+                <h1>{post.title}</h1>
+              </div>
             </Link>
           );
         })

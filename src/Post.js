@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "./axios";
 
 const Post = props => {
-  const { title, id, userId } = props;
+  const { id } = props;
   const [post, setPost] = useState([]);
   const [author, setAuthor] = useState("");
   const [comments, setComments] = useState([]);
@@ -19,24 +19,34 @@ const Post = props => {
     axios.get(`/comments?postId=${id}`).then(response => {
       const commentsList = response.data;
       setComments(commentsList);
-      console.log(commentsList);
     });
-  }, [id, userId, setAuthor, setComments]);
+  }, [id, setAuthor, setComments]);
 
   return (
-    <div>
-      <h1>{post.title}</h1>
-      <h2>{author}</h2>
-      <p>{post.body}</p>
-      {comments.length === 0 ? (
-        <h1>No comments found</h1>
+    <div className="post" key="post.id">
+      {post !== [] ? (
+        <h1>Loading...</h1>
       ) : (
-        comments.map(comment => (
-          <div className="comment" key={comment.id}>
-            <h1>{comment.name}</h1>
-            <p>{comment.body}</p>
-          </div>
-        ))
+        <div className="post-data">
+          <h1 className="title">{post.title}</h1>
+          <h2 className="author">{`by ${author}`}</h2>
+          <p className="body">{post.body}</p>
+        </div>
+      )}
+      <h4>Comments</h4>
+      <hr />
+      {comments.length === 0 || post !== [] ? (
+        <h1></h1>
+      ) : (
+        <div className="comment">
+          {comments.map(comment => (
+            <div className="comment-data" key={comment.id}>
+              <h1 className="name">{comment.name}</h1>
+              <span className="by">{`by ${comment.email}`}</span>
+              <p className="body">{comment.body}</p>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );

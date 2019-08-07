@@ -18,11 +18,13 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "parcel-bundler": "^1.12.3",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "sass": "^1.22.9"
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-sticky-footer": "0.1.0-rc3"
   }
 }

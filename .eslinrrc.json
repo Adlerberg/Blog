@@ -7,10 +7,6 @@
     "prettier",
     "prettier/react"
   ],
-  "rules": {
-    "react/prop-types": 0,
-    "no-console": 1
-  },
   "plugins": ["react", "import", "jsx-a11y"],
   "parcerOptions": {
     "ecmaVersion": 2018,
@@ -18,6 +14,10 @@
     "ecmaFeatures": {
       "jsx": true
     }
+  },
+  "rules": {
+    "react/prop-types": 0,
+    "no-console": 1
   },
   "env": {
     "es6": true,
