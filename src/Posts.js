@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "./axios";
-import Post from "./Post";
 import { Link } from "@reach/router";
 
 const Posts = () => {
@@ -8,7 +7,6 @@ const Posts = () => {
 
   useEffect(() => {
     axios.get("posts/").then(response => {
-      console.log;
       const postsList = response.data;
       setPosts(postsList);
     });
