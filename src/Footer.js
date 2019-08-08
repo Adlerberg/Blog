@@ -6,9 +6,8 @@ export default function Footer() {
   return (
     <StickyFooter
       bottomThreshold={50}
-      stickyStyles={{
-        width: "100%"
-      }}
+      normalStyles={{ bottom: 0 }}
+      stickyStyles={{ width: "100%" }}
     >
       <nav className="navbar">
         <ul className="navigation">

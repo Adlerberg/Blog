@@ -1,5 +1,6 @@
 $color_1: rgb(28, 24, 22);
 $color_2: white;
+$navbar_color: rgba(0, 191, 255, 0.8);
 
 * {
   padding: 0;
@@ -10,7 +11,7 @@ $color_2: white;
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem;
-  background: rgba(0, 191, 255, 0.8);
+  background: $navbar_color;
 }
 .logo {
   margin: 0 0 0 0.45em;
@@ -70,6 +71,12 @@ $color_2: white;
       }
     }
   }
+  .pagination {
+    flex-wrap: wrap;
+  }
+}
+.no-decoration {
+  text-decoration: none;
 }
 
 .posts {
@@ -78,15 +85,33 @@ $color_2: white;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+
   .post {
-    width: 250px;
+    width: 300px;
+    height: 250px;
+    color: black;
     padding: 16px;
     text-align: center;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
     margin: 10px;
+    font-size: 14px;
+    overflow: hidden;
     box-sizing: border-box;
     cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1:first-letter {
+      text-transform: capitalize;
+    }
+
+    &:hover {
+      color: $navbar_color;
+      text-decoration: underline;
+    }
   }
 }
 
@@ -96,23 +121,20 @@ $color_2: white;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+
   .title {
-    width: 60%;
-    padding: 16px;
+    width: 80%;
     text-align: center;
-    border: 1px solid #eee;
-    box-shadow: 0 2px 3px #ccc;
-    margin: 10px;
-    box-sizing: border-box;
+
+    &:first-letter {
+      text-transform: capitalize;
+    }
   }
+
   .author {
     width: 30%;
-    padding: 16px;
     text-align: center;
-    border: 1px solid #eee;
-    box-shadow: 0 2px 3px #ccc;
-    margin: 10px;
-    box-sizing: border-box;
+    font-size: 14px;
   }
   .body {
     width: 75%;
@@ -122,6 +144,11 @@ $color_2: white;
     box-shadow: 0 2px 3px #ccc;
     margin: 10px;
     box-sizing: border-box;
+    font-size: 20px;
+
+    &:first-letter {
+      text-transform: capitalize;
+    }
   }
 }
 
@@ -139,11 +166,39 @@ $color_2: white;
     box-shadow: 0 2px 3px #ccc;
     margin: 10px;
     box-sizing: border-box;
+    border-left: 1px solid black;
+
     .by {
       font-size: 0.8rem;
     }
+
     .body {
       font-size: 1.2rem;
+    }
+  }
+}
+
+.pagination {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  .pagination-item {
+    width: 3%;
+    padding: 16px;
+    text-align: center;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    margin: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    &:hover {
+      background-color: white;
+    }
+    &.active {
+      border: 1px solid $navbar_color;
     }
   }
 }

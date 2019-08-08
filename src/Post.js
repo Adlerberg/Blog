@@ -24,7 +24,7 @@ const Post = props => {
 
   return (
     <div className="post" key="post.id">
-      {post !== [] ? (
+      {post.length === 0 ? (
         <h1>Loading...</h1>
       ) : (
         <div className="post-data">
@@ -33,9 +33,7 @@ const Post = props => {
           <p className="body">{post.body}</p>
         </div>
       )}
-      <h4>Comments</h4>
-      <hr />
-      {comments.length === 0 || post !== [] ? (
+      {comments.length === 0 ? (
         <h1></h1>
       ) : (
         <div className="comment">
